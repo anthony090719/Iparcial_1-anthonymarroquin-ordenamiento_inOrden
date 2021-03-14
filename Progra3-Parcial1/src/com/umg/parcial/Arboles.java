@@ -45,15 +45,15 @@ class ArbolBinario {
 		System.out.println("INGRESE VALOR");
 		int valor = sc.nextInt();
 		//CODIGO PARA INGRESAR UN VALOR 
-		raiz.Insertarnodo(valor);
+		raiz.InsertarNuevoNodoArbol(valor);
 	}
 	
-	//COLOCAR METODO INORDEN
-		public void InOrden(Nodo nodo) {
+	//COLOCAR METODO INORDEN pPARA EL ORDENAMIENTO DE LOS NODOS DEL ARBOL
+		public void MetodoInOrdenNodos(Nodo nodo) {
 				if (nodo != null) {
-					InOrden(nodo.getIzq());
-					System.out.println(" " + nodo.value);
-					InOrden(nodo.getDer());
+					MetodoInOrdenNodos(nodo.getIzq());
+					System.out.println(nodo.value);
+					MetodoInOrdenNodos(nodo.getDer());
 				}
 			}
 	
@@ -61,7 +61,7 @@ class ArbolBinario {
 		//CODIGO PARA LA OPCION MOSTRAR
 		if(raiz == null) {
 		}else {
-			InOrden(raiz);		
+			MetodoInOrdenNodos(raiz);		
 		}
   }
 }
@@ -101,21 +101,21 @@ class Nodo{
 		this.der = der;
 	}
 	
-	// PARA INSERTAR UN ELEMENTO CREAMOS EL METODO INSERTAR NODO
+	// PARA INSERTAR UN ELEMENTO CREAMOS EL METODO INSERTAR NUEVO NODO
 	
-		public void Insertarnodo (int dato){
+		public void InsertarNuevoNodoArbol (int dato){
 				if(dato < value){
 					if (izq == null)
 						izq = new Nodo(dato);
 					else
-						izq.Insertarnodo(dato);
+						izq.InsertarNuevoNodoArbol(dato);
 				}
 				else{
 					if (dato > value){
 						if (der == null)
 							der = new Nodo(dato);
 						else
-							der.Insertarnodo(dato);
+							der.InsertarNuevoNodoArbol(dato);
 					}
 				}
 		  }
